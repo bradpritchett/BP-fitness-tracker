@@ -1,5 +1,8 @@
 const path = require("path");
 const db = require("../models");
+
+require("../config");
+
 module.exports = function (app) {
 	app.get("/api/workouts", (req, res) => {
 		db.Workout.find().sort({ _id: -1 }).limit(1)
