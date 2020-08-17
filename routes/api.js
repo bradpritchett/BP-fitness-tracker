@@ -11,7 +11,6 @@ db.Workout.create({ day: Date.now() })
 	});
 
 router.get("/api/workouts", (req, res) => {
-	console.log("db.workout", db.Workout)
 	db.Workout.find({})
 		.populate("exercises")
 		.then(dbWorkout => {
@@ -21,6 +20,16 @@ router.get("/api/workouts", (req, res) => {
 			res.json(err);
 		});
 });
+
+router.get("/exercise", (req, res) => {
+	db.Exercise.find({})
+		.then(dbNote => {
+			res.json(dbNote);
+		})
+		.catch(err => {
+			res.json(err);
+		});
+})
 
 router.get("/api/workouts/:id", (req, res) => {
 	db.Workout.findOne({
