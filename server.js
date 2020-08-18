@@ -16,10 +16,6 @@ app.use(express.static("public"));
 require("./routes/htmlroutes")(app);
 require("./routes/apiroutes")(app);
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
-mongoose.connect(MONGODB_URI);
-
 app.listen(PORT, err => {
 	if (err) throw err;
 	console.log(`Listening on port ${PORT}`);
