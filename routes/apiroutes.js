@@ -41,4 +41,4 @@ module.exports = function (app) {
 			})
 			.catch(err => res.json(err));
 	});
-}
+} 
